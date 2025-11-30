@@ -1,154 +1,1064 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPM Creative Company USA</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0c0c0c;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #f4f4f4;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <title>SPM Creative Company USA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SPM Creative Company USA — Music, Image and Creative Direction. A worldview materialized through art." />
+  <style>
+    :root {
+      --bg-main: #05040b;
+      --bg-elevated: #0b0b18;
+      --accent: #9b5bff;
+      --accent-soft: #c4a5ff;
+      --text-main: #f7f7ff;
+      --text-muted: #a9a9c4;
+      --border-soft: #2a2940;
+      --max-width: 1120px;
+      --radius: 14px;
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.7);
+      --transition-fast: 180ms ease-out;
+    }
 
-        header {
-            padding: 120px 40px;
-            text-align: center;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        h1 {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(155, 91, 255, 0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 140, 255, 0.16), transparent 55%),
+        #02010a;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      animation: bodyFadeIn 600ms ease-out;
+    }
 
-        h2 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-top: 60px;
-            margin-bottom: 20px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: auto;
-        }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .button {
-            display: inline-block;
-            margin-top: 40px;
-            padding: 14px 36px;
-            background-color: #ffffff;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 4px;
-        }
+    /* HEADER / NAV */
 
-        section {
-            padding: 80px 40px;
-            text-align: center;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 4, 17, 0.96),
+        rgba(5, 4, 17, 0.78),
+        transparent
+      );
+      border-bottom: 1px solid rgba(60, 60, 100, 0.55);
+    }
 
-        .pillar {
-            max-width: 800px;
-            margin: 40px auto;
-        }
+    .nav-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.8rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-        footer {
-            padding: 60px 40px;
-            text-align: center;
-            font-size: 15px;
-            opacity: 0.7;
-        }
-    </style>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(197, 171, 255, 0.5);
+      background: radial-gradient(circle at 30% 0%, #fefefe, #6b4bff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-name {
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .brand-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      font-size: 0.86rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 0.15rem;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(11, 11, 30, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(155, 91, 255, 0.65);
+      padding: 0.42rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--accent-soft);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      transition: border var(--transition-fast), transform var(--transition-fast),
+        box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .nav-cta span:last-child {
+      font-size: 0.9rem;
+      transform: translateY(0.5px);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, rgba(155, 91, 255, 0.12), rgba(7, 113, 255, 0.12));
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 3.8rem 1.4rem;
+    }
+
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      line-height: 1.05;
+      font-weight: 620;
+      margin-bottom: 1.2rem;
+      animation: fadeUp 600ms ease-out 90ms both;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 33rem;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 650ms ease-out 150ms both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 650ms ease-out 210ms both;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.86rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 0% 0%, #ffffff, #c29dff);
+      color: #090712;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-primary span:last-child {
+      font-size: 0.95rem;
+      transform: translateY(0.5px);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 1);
+    }
+
+    .btn-ghost {
+      background: rgba(9, 9, 24, 0.85);
+      border-color: rgba(80, 80, 120, 0.85);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(155, 91, 255, 0.9);
+      color: var(--accent-soft);
+      background: rgba(11, 11, 30, 0.96);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+      animation: fadeUp 650ms ease-out 260ms both;
+    }
+
+    .hero-meta span {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent-soft), var(--accent));
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      animation: floatIn 600ms ease-out 140ms both;
+    }
+
+    .hero-image-frame {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(140, 120, 220, 0.9);
+      box-shadow: var(--shadow-soft);
+      background: #05040b;
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.05);
+      transform: scale(1.01);
+      transition: transform 220ms ease-out, filter 220ms ease-out;
+    }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.03);
+      filter: contrast(1.1);
+    }
+
+    .hero-card {
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 0 0, rgba(160, 122, 255, 0.4), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(29, 110, 255, 0.3), transparent 60%),
+        #060612;
+      border: 1px solid rgba(84, 74, 145, 0.9);
+      padding: 1.4rem 1.3rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        transparent 40%,
+        transparent 60%,
+        rgba(155, 91, 255, 0.16)
+      );
+      mix-blend-mode: soft-light;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.55rem;
+      color: var(--text-main);
+    }
+
+    .hero-card p {
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .hero-card li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 0.84rem;
+    }
+
+    .hero-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent-soft), var(--accent));
+    }
+
+    /* SECTIONS GENERIC */
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section {
+      position: relative;
+    }
+
+    /* ABOUT */
+
+    #about .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      animation: fadeUp 650ms ease-out both;
+    }
+
+    .about-text p + p {
+      margin-top: 1rem;
+    }
+
+    .about-media {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: floatIn 650ms ease-out 90ms both;
+    }
+
+    .about-photo {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(130, 118, 210, 0.85);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+      background: #05040b;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-card {
+      background: radial-gradient(circle at top, rgba(155, 91, 255, 0.24), transparent 55%),
+        var(--bg-elevated);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-soft);
+      padding: 1.5rem 1.4rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+    }
+
+    .about-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .about-card p + p {
+      margin-top: 0.6rem;
+    }
+
+    /* PILLARS */
+
+    #pillars {
+      padding-top: 3.2rem;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .pillar-card {
+      background: radial-gradient(circle at top, rgba(155, 91, 255, 0.18), transparent 60%),
+        var(--bg-elevated);
+      border-radius: var(--radius);
+      border: 1px solid rgba(58, 56, 100, 0.9);
+      padding: 1.1rem 1.05rem 1.2rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      transition: transform 190ms ease-out, box-shadow 190ms ease-out,
+        border 190ms ease-out, background 190ms ease-out;
+    }
+
+    .pillar-card h3 {
+      font-size: 0.94rem;
+      margin-bottom: 0.45rem;
+      color: var(--text-main);
+    }
+
+    .pillar-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(142, 130, 220, 0.9);
+      margin-bottom: 0.55rem;
+    }
+
+    .pillar-photo img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pillar-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 120% 0, rgba(255, 255, 255, 0.16), transparent 60%);
+      opacity: 0;
+      transition: opacity 220ms ease-out;
+      pointer-events: none;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(155, 91, 255, 0.9);
+      background: radial-gradient(circle at top, rgba(155, 91, 255, 0.26), transparent 65%),
+        #090816;
+    }
+
+    .pillar-card:hover::after {
+      opacity: 1;
+    }
+
+    /* PRODUCTS */
+
+    #products {
+      padding-top: 3.2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .product-card {
+      background: rgba(7, 7, 18, 0.96);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-soft);
+      padding: 1.3rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border var(--transition-fast);
+    }
+
+    .product-card h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.55rem;
+      color: var(--text-main);
+    }
+
+    .product-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-tag span:first-child {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--accent-soft), var(--accent));
+    }
+
+    .product-card p + p {
+      margin-top: 0.55rem;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(155, 91, 255, 0.85);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* CONTACT */
+
+    #contact {
+      padding-top: 3.2rem;
+      padding-bottom: 4.2rem;
+    }
+
+    .contact-box {
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 0 0, rgba(198, 179, 255, 0.35), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(21, 129, 255, 0.35), transparent 65%),
+        #070515;
+      border: 1px solid rgba(102, 86, 180, 0.9);
+      padding: 2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 26px 80px rgba(0, 0, 0, 0.9);
+      animation: floatIn 700ms ease-out both;
+    }
+
+    .contact-box h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-box p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 33rem;
+      margin: 0 auto 1.6rem;
+    }
+
+    .contact-meta {
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+      color: rgba(232, 230, 255, 0.88);
+      opacity: 0.85;
+    }
+
+    .contact-meta span {
+      display: inline-block;
+      margin: 0 0.7rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(50, 48, 90, 0.9);
+      padding: 1.1rem 1.4rem 1.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes bodyFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #about .wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 3.2rem;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      section {
+        padding-inline: 1rem;
+      }
+
+      .pillars-grid,
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding-inline: 1.4rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <header>
+      <div class="nav-shell">
+        <div class="brand">
+          <div class="brand-logo">
+            <!-- Substitua pelo arquivo real da sua logo -->
+            <img src="spm-logo.png" alt="SPM logo" />
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">SPM CREATIVE COMPANY USA</div>
+            <div class="brand-tag">Music · Image · Creative Direction</div>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#pillars">Pillars</a>
+          <a href="#products">Work</a>
+          <a href="#contact">Contact</a>
+          <a class="nav-cta" href="mailto:contact@spmcreativeusa.com">
+            <span>●</span><span>Contact us</span>
+          </a>
+        </nav>
+      </div>
+    </header>
 
-<header>
-    <h1>A worldview materialized through art.</h1>
-    <p>
-        We create musical, visual, and conceptual direction with depth, precision, and aesthetic clarity.
-        Projects that unify emotion, narrative, and intention — transforming ideas into real presence.
-    </p>
-    <p style="margin-top: 30px; opacity: 0.9;">
-        Founded by Gabriel A. T. Arevalo, João Paulo Faria and Marco Antônio do Carmo Pontes.
-    </p>
-    <a class="button" href="#contact">Contact Us</a>
-</header>
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="hero-kicker">SPM Creative Company USA</div>
+            <h1 class="hero-title">A worldview materialized through art.</h1>
+            <p class="hero-subtitle">
+              We shape musical, visual, and conceptual direction with depth, precision, and aesthetic clarity.
+              Projects that unite emotion, narrative, and intention — transforming vision into presence.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary">
+                <span>Contact us</span>
+                <span>→</span>
+              </a>
+              <a href="#products" class="btn-ghost">Explore our work</a>
+            </div>
+            <div class="hero-meta">
+              <span>Founded by Gabriel A. T. Arevalo, João Paulo Faria and Marco Antônio do Carmo Pontes</span>
+              <span>Operating between the United States and Brazil</span>
+            </div>
+          </div>
 
-<section id="about">
-    <h2>About Us</h2>
-    <p>
-        SPM Creative Company USA was born from the convergence of music, cinema, and creative direction.
-        We are a house of creation that treats art as language, purpose, and presence. With work that has
-        circulated through Brazil, Latin America, the United States, Europe, and Asia, we bring a global
-        perspective shaped on stage, in the studio, and behind the camera.
-        <br><br>
-        Gabriel A. T. Arevalo, João Paulo Faria and Marco Antônio do Carmo Pontes combine musical direction,
-        audiovisual craft and orchestral expertise to build works with artistic depth, aesthetic clarity and
-        solid delivery.
-        <br><br>
-        Every project begins with identity, narrative and intention. We combine sound, image, artistic direction
-        and strategy to transform visions into something seen, heard, and recognized.
-    </p>
-</section>
+          <div class="hero-visual">
+            <div class="hero-image-frame">
+              <!-- Estúdio SPM em P&B -->
+              <img src="spm-studio-bw.jpg" alt="SPM Studio" />
+            </div>
+            <div class="hero-card">
+              <h3>What we do</h3>
+              <p>
+                We develop projects where sound, image and concept move in the same direction.
+                From the first idea to the final delivery, with artistic depth and structured execution.
+              </p>
+              <ul>
+                <li>Cinema, campaigns and music videos</li>
+                <li>Music production, scores and sonic identity</li>
+                <li>Creative direction and strategic positioning</li>
+                <li>Portraiture and visual presence for artists and brands</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<section id="pillars">
-    <h2>Our Pillars</h2>
+      <!-- ABOUT -->
+      <section id="about" class="section">
+        <div class="wrap">
+          <div>
+            <h2 class="section-title">About SPM Creative Company USA</h2>
+            <div class="about-text">
+              <p>
+                SPM was born from the convergence of music, cinema and creative direction.
+                We are a house of creation that treats art as language, purpose and presence.
+                With work that has circulated through Brazil, Latin America, the United States,
+                Europe and Asia, we bring a global perspective shaped on stage, in the studio
+                and behind the camera.
+              </p>
+              <p>
+                Gabriel A. T. Arevalo, João Paulo Faria and Marco Antônio do Carmo Pontes combine
+                musical direction, audiovisual craft and orchestral expertise in a single axis —
+                crafting works with artistic depth, aesthetic clarity and disciplined delivery.
+              </p>
+              <p>
+                Every project begins with identity, narrative and intention. We merge sound, image,
+                artistic direction and strategy to transform visions into something you can see,
+                hear and recognize.
+              </p>
+            </div>
+          </div>
+          <div class="about-media">
+            <div class="about-photo">
+              <!-- Marco & João em P&B -->
+              <img src="founders-bw.jpg" alt="Marco Antônio and João Paulo Faria" />
+            </div>
+            <div class="about-card">
+              <h3>How we approach each project</h3>
+              <p>
+                We listen before we design. Context, timing, audience and intention define the path.
+              </p>
+              <p>
+                From there, we build the creative and technical architecture: narrative, visual language,
+                sonic identity, rhythm and structure. Only then we move into execution — with clear steps,
+                aligned expectations and defined milestones.
+              </p>
+              <p>
+                The result is not just a piece of content or a song, but a coherent presence that can
+                live across platforms, formats and stages.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="pillar">
-        <h3>Cinema & Image</h3>
-        <p>
-            Audiovisual production with language, narrative, and direction.
-            From institutional pieces to campaigns, music videos, live sessions,
-            documentaries, short, medium and feature-length films.
-        </p>
-    </div>
+      <!-- PILLARS -->
+      <section id="pillars" class="section">
+        <div class="wrap">
+          <h2 class="section-title">Our pillars</h2>
+          <p class="section-subtitle">
+            Four fronts that interact constantly: cinema and image, music and sound, creative direction
+            and strategy, and visual presence. Each one can live alone — but they gain strength
+            when they move together.
+          </p>
 
-    <div class="pillar">
-        <h3>Music & Sound</h3>
-        <p>
-            Complete music production, original scores, sound design, orchestral arrangements,
-            recording direction and sonic identity for artists, films and brands.
-        </p>
-    </div>
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <!-- João BTS em P&B no pilar de Cinema & Image -->
+              <div class="pillar-photo">
+                <img src="cinema-bts-bw.jpg" alt="João Paulo Faria — behind the scenes" />
+              </div>
+              <h3>Cinema &amp; Image</h3>
+              <p>
+                Audiovisual production with language, narrative and direction.
+                From institutional films to campaigns, music videos, live sessions,
+                documentaries, short, mid-length and feature projects.
+              </p>
+            </div>
 
-    <div class="pillar">
-        <h3>Creative Direction & Strategy</h3>
-        <p>
-            Identity building, artistic positioning, narrative development and creative planning
-            for careers, brands and long-term projects.
-        </p>
-    </div>
+            <div class="pillar-card">
+              <h3>Music &amp; Sound</h3>
+              <p>
+                Complete music production, original scores, sound design, orchestral arrangements,
+                recording direction and sonic identity for artists, films and brands.
+              </p>
+            </div>
 
-    <div class="pillar">
-        <h3>Portrait & Visual Presence</h3>
-        <p>
-            Artistic portraiture, institutional photography, editorial visuals and branded imagery
-            with aesthetic precision and intentional composition.
-        </p>
-    </div>
-</section>
+            <div class="pillar-card">
+              <h3>Creative Direction &amp; Strategy</h3>
+              <p>
+                Identity building, artistic positioning, narrative development and creative planning
+                for careers, brands and long-term projects.
+              </p>
+            </div>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>
-        If you seek artistic, musical or visual direction with depth, intention and clarity,
-        we begin with the right conversation. We collaborate on projects that require vision,
-        aesthetics and solid delivery.
-    </p>
-    <a class="button" href="mailto:contact@spmcreative.com">Contact Us</a>
-</section>
+            <div class="pillar-card">
+              <h3>Portrait &amp; Visual Presence</h3>
+              <p>
+                Portraiture, institutional and editorial imagery, stills and visual branding
+                with intentional composition and aesthetic discipline.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<footer>
-    ©️ SPM Creative Company USA — All Rights Reserved
-</footer>
+      <!-- PRODUCTS / WORK -->
+      <section id="products" class="section">
+        <div class="wrap">
+          <h2 class="section-title">How we work in practice</h2>
+          <p class="section-subtitle">
+            We translate these pillars into concrete formats — from focused productions to complex,
+            multi-layered projects. Each engagement is tailored, but the structure is clear.
+          </p>
 
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Audiovisual</span>
+              </div>
+              <h3>Institutional &amp; cinematic pieces</h3>
+              <p>
+                Films and visual narratives for brands, projects and institutions that need more than
+                a simple video. Direction, image language and edit aligned to a clear purpose.
+              </p>
+              <p>
+                From concise institutional films to full campaigns, music videos and live sessions.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Music</span>
+              </div>
+              <h3>Full music production</h3>
+              <p>
+                From a first idea to a mastered track. Composition, arrangement, production,
+                vocal direction and finishing for singles, EPs, albums and live recordings.
+              </p>
+              <p>
+                We also create original scores and themes for films, series and campaigns.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Creative direction</span>
+              </div>
+              <h3>Creative consultancy</h3>
+              <p>
+                Strategic direction for artists and brands: positioning, narrative, aesthetic
+                language and launch planning. Clear criteria for what to create, when and why.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Visual presence</span>
+              </div>
+              <h3>Portrait &amp; branding imagery</h3>
+              <p>
+                Portraits, institutional photography and visual material for campaigns, covers
+                and communication. Clean, intentional and aligned with the narrative of each client.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Score &amp; sound</span>
+              </div>
+              <h3>Score &amp; sonic identity</h3>
+              <p>
+                Original music and sound design for films, commercials, digital content and experiences.
+                Sound that does not just accompany the image, but carries meaning.
+              </p>
+            </div>
+
+            <div class="product-card">
+              <div class="product-tag">
+                <span></span>
+                <span>Collaboration</span>
+              </div>
+              <h3>Custom projects</h3>
+              <p>
+                For complex initiatives that blend cinema, music, live performance, brand and narrative,
+                we design specific architectures and teams — keeping SPM as the central creative axis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section">
+        <div class="wrap">
+          <div class="contact-box">
+            <h2>Start the right conversation</h2>
+            <p>
+              If you are an artist, brand, producer or company and you are looking for artistic,
+              musical or visual direction with depth, intention and clarity, we begin with a
+              conversation about context and purpose.
+            </p>
+            <a href="mailto:contact@spmcreativeusa.com" class="btn-primary">
+              <span>Contact us</span>
+              <span>→</span>
+            </a>
+            <div class="contact-meta">
+              <span>contact@spmcreativeusa.com</span>
+              <span>SPM Creative Company USA</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>©️ SPM Creative Company USA. All rights reserved.</span>
+        <span>Music · Image · Creative Direction</span>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
